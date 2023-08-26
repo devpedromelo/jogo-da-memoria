@@ -1,0 +1,71 @@
+main{
+    background-image: url('../imagens/bg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 50px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 0 0 30px;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);/*repeat(quantas vezes quero repetir, o que eu quero repetir);*/
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;/*define a proporção de um elemento, 1/1 define q independente da largura o elemento vai ficar quadrado por exemplo*/
+    transition: all 400ms ease;
+    transform-style: preserve-3d;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 400ms ease;
+    border: 2px solid #38813a;
+}
+
+.front{
+    transform: rotateY(180deg);
+}
+
+.back{
+    background-image: url(../imagens/back.png);
+    backface-visibility: hidden;
+}
+
+.reveal-card{
+    transform: rotateY(180deg);
+}
+
+.disabled-card{
+    filter: saturate(0);/*preto e branco*/
+    opacity: 0.5;
+}
