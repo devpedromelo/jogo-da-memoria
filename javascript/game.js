@@ -1,6 +1,10 @@
 const grid = document.querySelector(".grid");
-const spanPlayer = document.querySelector(".player")
-const timer = document.querySelector('.timer')
+const spanPlayer = document.querySelector(".player");
+const timer = document.querySelector('.timer');
+const winMessage = document.querySelector(".win-message");
+
+//pegando o nome do local storage
+const playerName = localStorage.getItem('player');
 
 const characters = [
     'beth',
@@ -28,8 +32,9 @@ checkEndGame = () => {
     const disabledCards = document.querySelectorAll(".disabled-card");
 
     if(disabledCards.length === 20){
-        alert("Ganhou");
+        winMessage.classList.add('win')
         clearInterval(this.loop)
+        winMessage.innerHTML = `Parabéns ${playerName}! Você ganhou o jogo com o tempo recorde de ${timer.innerHTML} segundo(s).`
     }
 }
 
@@ -116,8 +121,6 @@ const startTimer = () => {
 }
 
 window.onload = () => {
-    //pegando o nome do local storage
-    const playerName = localStorage.getItem('player');
     spanPlayer.innerHTML = playerName;
     startTimer();
     loadGame();
